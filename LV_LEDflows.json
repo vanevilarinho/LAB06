@@ -1,0 +1,480 @@
+[
+    {
+        "id": "7b9ed63e.2138f8",
+        "type": "tab",
+        "label": "Basic_Flow",
+        "disabled": false,
+        "info": "# Basic flow to start with STM32CubeMonitor."
+    },
+    {
+        "id": "1ebbb430.dac7dc",
+        "type": "ui_chartst",
+        "z": "7b9ed63e.2138f8",
+        "group": "f9c34dde.1e2f4",
+        "name": "myChart",
+        "order": 4,
+        "width": 15,
+        "height": 9,
+        "chartType": "line",
+        "curveType": "linear",
+        "duration": "10",
+        "ymin": "",
+        "ymax": "",
+        "x": 580,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6013fb0b.5b7504",
+        "type": "acquisition out",
+        "z": "7b9ed63e.2138f8",
+        "name": "myProbe_Out",
+        "probeconfig": "8ddedfb3f60c963b",
+        "x": 760,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4a573fb0.4bc99",
+        "type": "acquisition in",
+        "z": "7b9ed63e.2138f8",
+        "name": "myProbe_In",
+        "probeconfig": "8ddedfb3f60c963b",
+        "x": 130,
+        "y": 280,
+        "wires": [
+            [
+                "a7c3e070.5a6c"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "d59587ff.cd1748",
+        "type": "variables",
+        "z": "7b9ed63e.2138f8",
+        "groupname": "myVariables",
+        "accesspoint": 0,
+        "execonfig": "0cac39cf2dc60c5a",
+        "variablelist": [],
+        "triggerstartmode": "manual",
+        "triggername": "BLUELED",
+        "triggerthreshold": "30000",
+        "frequency": "",
+        "frequencyType": "0",
+        "snapshotheader": "",
+        "mode": "direct",
+        "lastImportedTime": 1732583227641,
+        "openStatus": true,
+        "x": 330,
+        "y": 120,
+        "wires": [
+            [
+                "6013fb0b.5b7504",
+                "a37ed59b12132082"
+            ],
+            [
+                "f14d0398.f1861"
+            ]
+        ]
+    },
+    {
+        "id": "fc00295e.79ada8",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "Clear Graphs",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "clear",
+        "x": 430,
+        "y": 380,
+        "wires": [
+            [
+                "1ebbb430.dac7dc"
+            ]
+        ]
+    },
+    {
+        "id": "5fd51c96.2330e4",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": false,
+        "label": "START Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "start",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "d59587ff.cd1748"
+            ]
+        ]
+    },
+    {
+        "id": "52eadfe3.2c8cc",
+        "type": "ui_button",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "group": "f9c34dde.1e2f4",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "label": "STOP Acquisition",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "stop",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "d59587ff.cd1748"
+            ]
+        ]
+    },
+    {
+        "id": "a7c3e070.5a6c",
+        "type": "processing",
+        "z": "7b9ed63e.2138f8",
+        "groupname": "myVariables",
+        "groupid": "d59587ff.cd1748",
+        "expressions": [],
+        "statistics": [],
+        "logmode": "no",
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "1ebbb430.dac7dc"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "f14d0398.f1861",
+        "type": "ui_toast",
+        "z": "7b9ed63e.2138f8",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "",
+        "raw": false,
+        "topic": "",
+        "name": "",
+        "x": 570,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a37ed59b12132082",
+        "type": "ui_write",
+        "z": "7b9ed63e.2138f8",
+        "group": "f9c34dde.1e2f4",
+        "name": "",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "x": 550,
+        "y": 40,
+        "wires": [
+            [
+                "6013fb0b.5b7504",
+                "cacf845200354028"
+            ]
+        ]
+    },
+    {
+        "id": "9fdc58cd69f0ac28",
+        "type": "inject",
+        "z": "7b9ed63e.2138f8",
+        "name": "Off",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "num",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "254f2c57bde80e80"
+            ]
+        ]
+    },
+    {
+        "id": "21762c5fc3d8cb6e",
+        "type": "inject",
+        "z": "7b9ed63e.2138f8",
+        "name": "On",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "num"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "254f2c57bde80e80"
+            ]
+        ]
+    },
+    {
+        "id": "2878b54eeb43a1a0",
+        "type": "debug",
+        "z": "7b9ed63e.2138f8",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "cacf845200354028",
+        "type": "debug",
+        "z": "7b9ed63e.2138f8",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "254f2c57bde80e80",
+        "type": "template",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "json",
+        "syntax": "mustache",
+        "template": "{\n   \"variablelist\":[\n      {\n         \"address\":\"0x20000028\",\n         \"type\":1,\n         \"value\":\"{{payload}}\"\n      }\n   ],\n   \"accesspoint\":0\n}",
+        "output": "json",
+        "x": 340,
+        "y": 460,
+        "wires": [
+            [
+                "88e9af46050f01f6"
+            ]
+        ]
+    },
+    {
+        "id": "88e9af46050f01f6",
+        "type": "change",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "write",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 460,
+        "wires": [
+            [
+                "2878b54eeb43a1a0",
+                "6013fb0b.5b7504"
+            ]
+        ]
+    },
+    {
+        "id": "9fa26057ab5ea459",
+        "type": "mqtt in",
+        "z": "7b9ed63e.2138f8",
+        "name": "",
+        "topic": "vanessa",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "0e8867e951e8bcf8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 380,
+        "wires": [
+            [
+                "254f2c57bde80e80"
+            ]
+        ]
+    },
+    {
+        "id": "f9c34dde.1e2f4",
+        "type": "ui_group",
+        "name": "Chart",
+        "tab": "17d09b07.741a55",
+        "order": 1,
+        "disp": true,
+        "width": 15,
+        "collapse": false
+    },
+    {
+        "id": "8ddedfb3f60c963b",
+        "type": "probe",
+        "probeid": "33FF76064E59313832281043",
+        "probename": "ST-Link v2 33FF76064E59313832281043",
+        "protocol": "SWD",
+        "frequency": "1.8 MHz - Default",
+        "probeproperty": "{\"SWD\":[\"4.6 MHz\",\"1.8 MHz - Default\",\"950 kHz\",\"400 kHz\",\"150 kHz\"],\"JTAG\":[\"18 MHz\",\"9 MHz\",\"4.5 MHz\",\"2.25 MHz\",\"1.12 MHz - Default\",\"560 kHz\",\"280 kHz\",\"140 kHz\"]}",
+        "probeversion": "ST Link firmware version V2.J45",
+        "connectionType": "p2p",
+        "nickname": ""
+    },
+    {
+        "id": "0cac39cf2dc60c5a",
+        "type": "exe-config",
+        "name": "LEDLV",
+        "exefile": "C:\\Users\\Vanes\\OneDrive\\Documents\\01.Vanessa.UTFPR\\LAB06\\TIM2ADC1\\build\\Debug\\TIM2ADC1.elf",
+        "exefolder": "C:\\Users\\Vanes\\OneDrive\\Documents\\01.Vanessa.UTFPR\\LAB06\\TIM2ADC1\\build\\Debug",
+        "exevariablelist": [
+            {
+                "address": "0x0800173c",
+                "name": "AHBPrescTable[0]",
+                "type": 1
+            },
+            {
+                "address": "0x20000028",
+                "name": "BLUELED",
+                "type": 1,
+                "checked": true
+            },
+            {
+                "address": "0x20000008",
+                "name": "SystemCoreClock",
+                "type": 5
+            },
+            {
+                "address": "0x2000002c",
+                "name": "uwTick",
+                "type": 5
+            },
+            {
+                "address": "0x20000004",
+                "name": "uwTickFreq",
+                "type": 2
+            },
+            {
+                "address": "0x20000000",
+                "name": "uwTickPrio",
+                "type": 5
+            }
+        ],
+        "expand": false,
+        "filename": "TIM2ADC1.elf",
+        "exeModifiedTime": 1732582245479,
+        "configLastUpdate": 1732583227246
+    },
+    {
+        "id": "0e8867e951e8bcf8",
+        "type": "mqtt-broker",
+        "name": "vanessa",
+        "broker": "mqtt.adrianoruseler.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "5",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "17d09b07.741a55",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
